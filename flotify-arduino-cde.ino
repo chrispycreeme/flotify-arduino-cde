@@ -49,6 +49,18 @@ void setup() {
 }
 
 void loop() {
+  // digitalWrite(trigPin, LOW);
+  // delayMicroseconds(2);
+  // digitalWrite(trigPin, HIGH);
+  // delayMicroseconds(10);
+  // digitalWrite(trigPin, LOW);
+
+  // duration = pulseIn(echoPin, HIGH);
+  // distance = duration * 0.034 / 2;
+  // Serial.print("Distance (cm): ");
+  // Serial.println(distance);
+  // delay(1000);
+
   int rainValue = analogRead(rainSensor);
 
   int rainIntensity;
@@ -61,18 +73,6 @@ void loop() {
   } else if (rainValue < 500) {
     rainIntensity = 4;
   }
-
-  // digitalWrite(trigPin, LOW);
-  // delayMicroseconds(2);
-  // digitalWrite(trigPin, HIGH);
-  // delayMicroseconds(10);
-  // digitalWrite(trigPin, LOW);
-
-  // duration = pulseIn(echoPin, HIGH);
-  // distance = duration * 0.034 / 2;
-  // Serial.print("Distance (cm): ");
-  // Serial.println(distance);
-  // delay(100);
 
   WiFiClient client = server.available();  // listen for incoming clients
   if (client) {                            // if you get a client,

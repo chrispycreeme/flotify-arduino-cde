@@ -12,7 +12,6 @@ const char webserver[] PROGMEM = R"=====(
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/chrispycreeme/flotify-pro@main/css/card.css">
 </head>
 
@@ -57,7 +56,7 @@ const char webserver[] PROGMEM = R"=====(
                 <p class="rain-stat-text">Rain Intensity:</p>
                 <h1 class="rain-stat-auto" id="rainIntensity">No Rain</h1>
             </div>
-            <dotlottie-player src="https://lottie.host/9d984846-cd9e-4cef-84b4-f28890870cf7/FTChl2O5SN.json"
+            <dotlottie-player id="rain-lottie" src="https://lottie.host/9d984846-cd9e-4cef-84b4-f28890870cf7/FTChl2O5SN.json"
                 background="transparent" speed="1"
                 style="width: 190px; height: 190px; margin-top: -10px; display: inline-block;" loop
                 autoplay></dotlottie-player>
@@ -74,24 +73,29 @@ const char webserver[] PROGMEM = R"=====(
                 autoplay></dotlottie-player>
         </div>
     </div>
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
     <script>
       setInterval(function() {
         fetch('/rain').then(response => response.json()).then(data => {
           switch (data.rainIntensity) {
             case 1:
               document.getElementById('rainIntensity').innerText = "No Rain";
+              document.getElementById('rain-lottie').load = 'https://lottie.host/b7e6971d-7845-4491-97c4-a8c32cccbddf/ZqtIR8sy8M.json';
               break;
             case 2:
               document.getElementById('rainIntensity').innerText = "Light";
+              document.getElementById('rain-lottie').load = 'https://lottie.host/41cbb1f5-e4c0-42d6-a33c-ec20921002c7/24VKlD01j6.json';
               break;
             case 3:
               document.getElementById('rainIntensity').innerText = "Moderate";
+              document.getElementById('rain-lottie').load = 'https://lottie.host/f76c6ce3-c591-47c3-bb94-1efcba6d801c/kA5SFKfFgf.json';
               break;
             case 4:
               document.getElementById('rainIntensity').innerText = "Strong";
+              document.getElementById('rain-lottie').load = 'https://lottie.host/cbc337c6-d8d6-410b-9591-87beef66a5da/IYuuxRW9s1.json';
               break;
           }
-        });
+        })
       }, 1000);
     </script>
 </body>
