@@ -23,7 +23,10 @@
                 "c:\\users\\banlu\\appdata\\local\\arduino15\\packages\\arduino\\tools\\arm-none-eabi-gcc\\7-2017q4\\arm-none-eabi\\include\\c++\\7.2.1\\backward",
                 "c:\\users\\banlu\\appdata\\local\\arduino15\\packages\\arduino\\tools\\arm-none-eabi-gcc\\7-2017q4\\lib\\gcc\\arm-none-eabi\\7.2.1\\include",
                 "c:\\users\\banlu\\appdata\\local\\arduino15\\packages\\arduino\\tools\\arm-none-eabi-gcc\\7-2017q4\\lib\\gcc\\arm-none-eabi\\7.2.1\\include-fixed",
-                "c:\\users\\banlu\\appdata\\local\\arduino15\\packages\\arduino\\tools\\arm-none-eabi-gcc\\7-2017q4\\arm-none-eabi\\include"
+                "c:\\users\\banlu\\appdata\\local\\arduino15\\packages\\arduino\\tools\\arm-none-eabi-gcc\\7-2017q4\\arm-none-eabi\\include",
+                "C:/Users/banlu/AppData/Local/Arduino15/packages/arduino/hardware/renesas_uno/1.2.0/variants/UNOWIFIR4/includes/ra/fsp/inc/api",
+                "C:/Users/banlu/AppData/Local/Arduino15/packages/arduino/hardware/renesas_uno/1.2.0/variants/UNOWIFIR4/includes/ra/fsp/inc",
+                "C:/Users/banlu/AppData/Local/Arduino15/packages/arduino/hardware/renesas_uno/1.2.0/variants/UNOWIFIR4/includes/ra_cfg/fsp_cfg/bsp"
             ],
             "forcedInclude": [
                 "C:\\Users\\banlu\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\renesas_uno\\1.2.0\\cores\\arduino\\Arduino.h"
@@ -491,6 +494,17 @@
                 "__ATOMIC_ACQ_REL=4",
                 "__ATOMIC_RELEASE=3",
                 "USBCON"
+            ]
+        },
+        {
+            "name": "flotify",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
             ]
         }
     ]

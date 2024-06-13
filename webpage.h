@@ -65,7 +65,7 @@ const char webserver[] PROGMEM = R"=====(
             <div class="flood-level-text">
                 <p class="flood-stat-text">Flood Levels:</p>
                 <h1 class="flood-stat-auto">Safe</h1>
-                <h2 class="flood-meter-auto">~ <span id="waterLevel">1.1 meters</span></h2>
+                <h2 class="flood-meter-auto">~ <span id="waterLevel">1.1</span> meters</h2>
             </div>
             <dotlottie-player src="https://lottie.host/b7e6971d-7845-4491-97c4-a8c32cccbddf/ZqtIR8sy8M.json"
                 background="transparent" speed="1"
@@ -75,24 +75,25 @@ const char webserver[] PROGMEM = R"=====(
     </div>
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
     <script>
-      setInterval(function() {
-        fetch('/rain').then(response => response.json()).then(data => {
-          switch (data.rainIntensity) {
-            case 1:
-              document.getElementById('rainIntensity').innerText = "No Rain";
-              break;
-            case 2:
-              document.getElementById('rainIntensity').innerText = "Light";
-              break;
-            case 3:
-              document.getElementById('rainIntensity').innerText = "Moderate";
-              break;
-            case 4:
-              document.getElementById('rainIntensity').innerText = "Strong";
-              break;
-          }
+        setInterval(function() {
+            fetch('/rain').then(response => response.json()).then(data => {
+                document.getElementById('waterLevel').innerText = data.waterLevel;
+                switch (data.rainIntensity) {
+                case 1:
+                    document.getElementById('rainIntensity').innerText = "No Rain";
+                    break;
+                case 2:
+                    document.getElementById('rainIntensity').innerText = "Light";
+                    break;
+                case 3:
+                    document.getElementById('rainIntensity').innerText = "Moderate";
+                    break;
+                case 4:
+                    document.getElementById('rainIntensity').innerText = "Strong";
+                    break;
+            }
         })
-      }, 1000);
+        }, 1000);
     </script>
 </body>
 
