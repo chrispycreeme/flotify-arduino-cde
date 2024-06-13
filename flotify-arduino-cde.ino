@@ -1,4 +1,4 @@
-#include <WiFi.h>
+#include <WiFiS3.h>
 #include "arduino_secrets.h"
 #include "webpage.h"
 #define trigPin 10
