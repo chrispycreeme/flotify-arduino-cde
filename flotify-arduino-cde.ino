@@ -49,17 +49,15 @@ void setup() {
 }
 
 void loop() {
-  // digitalWrite(trigPin, LOW);
-  // delayMicroseconds(2);
-  // digitalWrite(trigPin, HIGH);
-  // delayMicroseconds(10);
-  // digitalWrite(trigPin, LOW);
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
 
-  // duration = pulseIn(echoPin, HIGH);
-  // distance = duration * 0.034 / 2;
-  // Serial.print("Distance (cm): ");
-  // Serial.println(distance);
-  // delay(1000);
+  duration = pulseIn(echoPin, HIGH);
+  distance = duration * 0.034 / 2;
+  delay(1000);
 
   int rainValue = analogRead(rainSensor);
 

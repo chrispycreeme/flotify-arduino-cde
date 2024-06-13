@@ -65,7 +65,7 @@ const char webserver[] PROGMEM = R"=====(
             <div class="flood-level-text">
                 <p class="flood-stat-text">Flood Levels:</p>
                 <h1 class="flood-stat-auto">Safe</h1>
-                <h2 class="flood-meter-auto">~ 1.1 meters</h2>
+                <h2 class="flood-meter-auto">~ <span id="waterLevel">1.1 meters</span></h2>
             </div>
             <dotlottie-player src="https://lottie.host/b7e6971d-7845-4491-97c4-a8c32cccbddf/ZqtIR8sy8M.json"
                 background="transparent" speed="1"
@@ -80,19 +80,15 @@ const char webserver[] PROGMEM = R"=====(
           switch (data.rainIntensity) {
             case 1:
               document.getElementById('rainIntensity').innerText = "No Rain";
-              document.getElementById('rain-lottie').load = 'https://lottie.host/b7e6971d-7845-4491-97c4-a8c32cccbddf/ZqtIR8sy8M.json';
               break;
             case 2:
               document.getElementById('rainIntensity').innerText = "Light";
-              document.getElementById('rain-lottie').load = 'https://lottie.host/41cbb1f5-e4c0-42d6-a33c-ec20921002c7/24VKlD01j6.json';
               break;
             case 3:
               document.getElementById('rainIntensity').innerText = "Moderate";
-              document.getElementById('rain-lottie').load = 'https://lottie.host/f76c6ce3-c591-47c3-bb94-1efcba6d801c/kA5SFKfFgf.json';
               break;
             case 4:
               document.getElementById('rainIntensity').innerText = "Strong";
-              document.getElementById('rain-lottie').load = 'https://lottie.host/cbc337c6-d8d6-410b-9591-87beef66a5da/IYuuxRW9s1.json';
               break;
           }
         })
