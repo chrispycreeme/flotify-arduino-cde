@@ -1,21 +1,27 @@
-#include <avr/pgmspace.h>
-
-const char webserver[] PROGMEM = R"=====(
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test-ui-run</title>
+    <title>Systems</title>
+    <link rel="stylesheet" href="/html/style/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/chrispycreeme/flotify-pro@main/css/card.css">
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </head>
 
 <body>
+    <div id="map"></div>
+    <script src="/html/js/maps.js"></script>
     <div class="card-info">
         <div class="top-card-content">
             <p class="title-location">Station Approximate Location:</p>
@@ -56,9 +62,9 @@ const char webserver[] PROGMEM = R"=====(
                 <p class="rain-stat-text">Rain Intensity:</p>
                 <h1 class="rain-stat-auto" id="rainIntensity">No Rain</h1>
             </div>
-            <dotlottie-player id="rain-lottie" src="https://lottie.host/9d984846-cd9e-4cef-84b4-f28890870cf7/FTChl2O5SN.json"
-                background="transparent" speed="1"
-                style="width: 190px; height: 190px; margin-top: -10px; display: inline-block;" loop
+            <dotlottie-player id="rain-lottie"
+                src="https://lottie.host/9d984846-cd9e-4cef-84b4-f28890870cf7/FTChl2O5SN.json" background="transparent"
+                speed="1" style="width: 190px; height: 190px; margin-top: -10px; display: inline-block;" loop
                 autoplay></dotlottie-player>
         </div>
         <div class="flood-level-section">
@@ -74,29 +80,6 @@ const char webserver[] PROGMEM = R"=====(
         </div>
     </div>
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
-    <script>
-        setInterval(function() {
-            fetch('/rain').then(response => response.json()).then(data => {
-                document.getElementById('waterLevel').innerText = data.waterLevel;
-                document.getElementById('temperature').innerText = data.temperature;
-                switch (data.rainIntensity) {
-                case 1:
-                    document.getElementById('rainIntensity').innerText = "No Rain";
-                    break;
-                case 2:
-                    document.getElementById('rainIntensity').innerText = "Light";
-                    break;
-                case 3:
-                    document.getElementById('rainIntensity').innerText = "Moderate";
-                    break;
-                case 4:
-                    document.getElementById('rainIntensity').innerText = "Strong";
-                    break;
-            }
-        })
-        }, 1000);
-    </script>
 </body>
 
 </html>
-)=====";

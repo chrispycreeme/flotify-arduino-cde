@@ -1,10 +1,17 @@
 #include <WiFiS3.h>
 #include "arduino_secrets.h"
 #include "webpage.h"
+#include <Wire.h>
+#include <Adafruit_BMP085.h>
+#include <SoftwareSerial.h>
+
+Adafruit_BMP085 bmp;
+
 #define trigPin 10
 #define echoPin 9
+SoftwareSerial BluetoothModule(10, 9); // RX, TX
 
-extern const char webserver[] PROGMEM; // Declaration of external webserver variable
+extern const char webserver[] PROGMEM;
 
 char ssid[] = SECRET_SSID; // your network SSID (name)
 char pass[] = SECRET_PASS; // your network password (use for WPA, or use as key for WEP)
@@ -18,7 +25,15 @@ WiFiServer server(80);
 
 void setup()
 {
-  Serial.begin(9600);         // initialize serial communication
+  Serial.begin(9600); // initialize serial communication
+  BluetoothModule.begin(9600);
+  if (!bmp.begin())
+  {
+    Serial.println("Could not find a valid BMP180 sensor, check wiring!");
+    while (1)
+    {
+    }
+  }
   pinMode(rainSensor, INPUT); // set the LED pin mode
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
@@ -63,14 +78,21 @@ void loop()
   duration = pulseIn(echoPin, HIGH);
   distance = duration * 0.034 / 2;
   delay(1000);
+  Serial.println(distance);
 
   int rainValue = analogRead(rainSensor);
 
   int rainIntensity;
-  rainIntensity = (rainValue >= 850 && rainValue <= 1023) ? 1 : 
-                  (rainValue >= 700 && rainValue < 850) ? 2 : 
-                  (rainValue >= 500 && rainValue < 700) ? 3 : 
-                  (rainValue < 500) ? 4 : rainIntensity;
+  rainIntensity = (rainValue >= 850 && rainValue <= 1023) ? 1 : (rainValue >= 700 && rainValue < 850) ? 2
+                                                            : (rainValue >= 500 && rainValue < 700)   ? 3
+                                                            : (rainValue < 500)                       ? 4
+                                                                                                      : rainIntensity;
+
+  Serial.print("Temperature = ");
+  Serial.print(bmp.readTemperature());
+  Serial.println(" *C");
+
+  long temperature = bmp.readTemperature();
 
   WiFiClient client = server.available(); // listen for incoming clients
   if (client)
@@ -87,10 +109,7 @@ void loop()
         request += c;           // store the byte in the request string
 
         if (c == '\n')
-        { // if the byte is a newline character
-
-          // if the current line is blank, you got two newline characters in a row.
-          // that's the end of the client HTTP request, so send a response:
+        {
           if (currentLine.length() == 0)
           {
             if (request.indexOf("GET /rain") >= 0)
@@ -104,6 +123,8 @@ void loop()
               client.print(rainIntensity);
               client.print(", \"waterLevel\": ");
               client.print(distance);
+              client.print(", \"temperature\": ");
+              client.print(temperature);
               client.println("}");
             }
             else
