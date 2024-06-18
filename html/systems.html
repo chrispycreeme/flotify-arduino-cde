@@ -10,8 +10,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
         rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/chrispycreeme/flotify-pro@main/css/card.css">
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 1,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 48
+        }
+    </style>
+
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -20,66 +33,111 @@
 </head>
 
 <body>
-    <div id="map"></div>
-    <script src="/html/js/maps.js"></script>
-    <div class="card-info">
-        <div class="top-card-content">
-            <p class="title-location">Station Approximate Location:</p>
-            <p class="location-approximate">Olongapo City, Zambales, Philippines</p>
-            <table>
-                <tr>
-                    <td>
-                        <h1 class="status-heading">
-                            <span class="icon-wrapper">
-                                <box-icon name='thermometer' type='solid' color='#009688'
-                                    style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #009688; padding: 3px;"></box-icon>
+    <nav class="topnav">
+        <div class="logo">
+            <a href="https://www.youtube.com"><img src="img/floatify-logo-transparent-white.png" alt=""></a>
+            <p class="logo-extension">SYSTEMS</p>
+        </div>
+        <ul>
+            <li><a href="/html/index.html">Emergency Hotlines</a></li>
+            <li><a href="/html/systems.html">Resources Used</a></li>
+            <li><a href="/html/contacts.html">About Us</a></li>
+        </ul>
+    </nav>
+    <section class="main-content">
+        <div class="main-content-flex">
+            <div class="side-contents">
+                <div class="sensor-infos">
+                    <div class="search-bar">
+                        <span class="material-symbols-outlined">
+                            search
+                        </span>
+                        <input type="text" placeholder="Search for Flotify Systems" class="search">
+                    </div>
+                    <div class="current-location">
+                        <h2 class="sensor-type-heading">Device Current Location</h2>
+                        <div class="current-location-container">
+                            <span class="material-symbols-outlined">
+                                my_location
                             </span>
-                            Temperature:
-                        </h1>
-                    </td>
-                    <td>
-                        <h1 class="status-value"><span id="temperature">0</span> °C</h1>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <h1 class="status-heading">
-                            <span class="icon-wrapper">
-                                <box-icon name='droplet' type='solid' color='#009688'
-                                    style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #009688; padding: 3px;"></box-icon>
+                            <div class="location-contaner">
+                                <p class="location-simplified" data-tooltip="Coordinates: 14.836375° N, 120.278112° E">
+                                    35-A National Highway, Lower Kalaklan, Olongapo,
+                                    Philippines</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="weather-parameters-container">
+                        <h2 class="sensor-type-heading">Weather Parameters</h2>
+                        <div class="weather-parameter">
+                            <span class="material-symbols-outlined">
+                                thermostat
                             </span>
-                            Humidity:
-                        </h1>
-                    </td>
-                    <td>
-                        <h1 class="status-value">50%</h1>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <div class="rain-intensity-section">
-            <div class="rain-text-cont">
-                <p class="rain-stat-text">Rain Intensity:</p>
-                <h1 class="rain-stat-auto" id="rainIntensity">No Rain</h1>
+                            <div class="sensor-val-classification">
+                                <h3 class="sensor-name">Temperature</h3>
+                                <p class="sensor-classification">HOT sobra</p>
+                            </div>
+                            <h3 class="sensor-val-actual">36°C</h3>
+                        </div>
+                        <div class="weather-parameter">
+                            <span class="material-symbols-outlined">
+                                humidity_percentage
+                            </span>
+                            <div class="sensor-val-classification">
+                                <h3 class="sensor-name">Humidity</h3>
+                                <p class="sensor-classification">Optimal</p>
+                            </div>
+                            <h3 class="sensor-val-actual">50%</h3>
+                        </div>
+                    </div>
+                    <div class="weather-indicators-container">
+                        <div class="rain-sensor-classifications">
+                            <div class="text-type-content-container">
+                                <h3 class="classification-heading">
+                                    Rain Intensity
+                                </h3>
+                                <h2 class="classification-simplified">
+                                    No Rain
+                                </h2>
+                                <h3 class="classification-detailed">
+                                    ~ 0.01 mm/h
+                                </h3>
+                            </div>
+                            <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+                                type="module"></script>
+                            <dotlottie-player
+                                src="https://lottie.host/9d984846-cd9e-4cef-84b4-f28890870cf7/FTChl2O5SN.json"
+                                background="transparent" speed="1"
+                                style="width: 230px; height: 230px; margin-top: 90px; margin-left: auto;" direction="1"
+                                playMode="bounce" loop autoplay></dotlottie-player>
+                        </div>
+                        <div class="flood-level-classifications">
+                            <div class="text-type-content-container">
+                                <h3 class="classification-heading">
+                                    Flood Levels
+                                </h3>
+                                <h2 class="classification-simplified">
+                                    Safe
+                                </h2>
+                                <h3 class="classification-detailed">
+                                    ~ 1 meters
+                                </h3>
+                            </div>
+                            <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+                                type="module"></script><dotlottie-player
+                                src="https://lottie.host/b7e6971d-7845-4491-97c4-a8c32cccbddf/ZqtIR8sy8M.json"
+                                background="transparent" speed="1" style="width: 320px; height: 320px; margin-left: auto; margin-top: 150px; margin-right: -60px;" direction="1"
+                                playMode="bounce" loop controls autoplay></dotlottie-player>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <dotlottie-player id="rain-lottie"
-                src="https://lottie.host/9d984846-cd9e-4cef-84b4-f28890870cf7/FTChl2O5SN.json" background="transparent"
-                speed="1" style="width: 190px; height: 190px; margin-top: -10px; display: inline-block;" loop
-                autoplay></dotlottie-player>
-        </div>
-        <div class="flood-level-section">
-            <div class="flood-level-text">
-                <p class="flood-stat-text">Flood Levels:</p>
-                <h1 class="flood-stat-auto">Safe</h1>
-                <h2 class="flood-meter-auto">~ <span id="waterLevel">1.1</span> meters</h2>
+            <div class="map-container">
+                <div id="mapid"></div>
             </div>
-            <dotlottie-player src="https://lottie.host/b7e6971d-7845-4491-97c4-a8c32cccbddf/ZqtIR8sy8M.json"
-                background="transparent" speed="1"
-                style="width: 320px; height: 320px; margin-top: -40px; margin-right: -90px;"
-                autoplay></dotlottie-player>
         </div>
-    </div>
-    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+        <script src="./js/switch-location.js"></script>
+    </section>
 </body>
 
 </html>
