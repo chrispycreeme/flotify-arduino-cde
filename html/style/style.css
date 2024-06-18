@@ -13,7 +13,7 @@ nav.topnav {
     align-items: center;
     display: flex;
     flex-wrap: wrap;
-    height: 10vh;
+    height: 11vh;
     width: 100vw;
 }
 
@@ -113,8 +113,8 @@ p.logo-extension::after {
 
 .main-content-flex {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
 }
 
 .sensor-infos {
@@ -356,4 +356,9 @@ h3.classification-detailed {
 .flood-level-classifications {
     background-color: #262A4C;
     height: 160px;
+}
+
+#map {
+    width: 100%;
+    height: 89.5vh;
 }
