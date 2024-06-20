@@ -13,7 +13,7 @@ var customIcon = L.icon({
 });
 
 var marker = L.marker([14.836375, 120.278112], {icon: customIcon}).addTo(map);
-var marker2 = L.marker([14.835408068840959, 120.28149424942553], {icon: customIcon}).addTo(map);
+var marker2 = L.marker([9.776641697816485, 118.76523128023013], {icon: customIcon}).addTo(map);
 
 marker.on('click', function(e) {
     map.flyTo(e.target.getLatLng(), 18);
