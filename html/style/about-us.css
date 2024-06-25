@@ -1,0 +1,126 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+.bg-img-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/html/img/bg_photo_B.png');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+.bg-color-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1B1F3B;
+    opacity: 0.93;
+    z-index: -1;
+}
+
+.device-functionality-showcase-cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.main-content-container {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    overflow: visible;
+}
+
+.description-container {
+    margin-top: 10%;
+}
+
+.description-name {
+    align-items: center;
+    display: flex;
+}
+
+.icon-container span {
+    color: #00F0B5;
+    width: 67px;
+    height: 67px;
+    font-size: 45px;
+    background-color: #161829;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.feature-name-container {
+    margin-left: 20px;
+}
+
+.feature-name,
+.feature-specified {
+    color: #00F0B5;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.feature-name {
+    font-size: 49px;
+}
+
+.feature-specified {
+    font-size: 13px;
+    font-style: italic;
+    margin-bottom: 0px;
+}
+
+p.feature-description {
+    font-family: 'Roboto Mono', monospace;
+    margin-top: 35px;
+    margin-left: 85px;
+    color: #DFE2E1;
+    width: 350px;
+    height: auto;
+    padding-left: 25px;
+    position: relative;
+}
+
+p.feature-description::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background-color: #00F0B5;
+}
+
+#nextFeatureBtn {
+    background-color: #212440;
+    color: #DFE2E1;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 14px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+#nextFeatureBtn:hover {
+    background-color: #00F0B5;
+    color: #212440;
+}

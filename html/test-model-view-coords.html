@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+</head>
+
+<body>
+    <model-viewer id="modelViewer" src="/html/assets/models/uncolored-model-flotify.glb" alt="pogi kao"
+        style="width: 660px; height: 660px;" camera-controls touch-pan="pan-x"></model-viewer>
+    <p id="cameraOrbit">Yaw: 0 Pitch: 0 Radius: 0</p>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const modelViewer = document.getElementById('modelViewer');
+            const cameraOrbitDisplay = document.getElementById('cameraOrbit');
+            const cameraTargetDisplay = document.createElement('p');
+            document.body.appendChild(cameraTargetDisplay);
+
+            function updateDisplay() {
+                const orbit = modelViewer.getCameraOrbit();
+                cameraOrbitDisplay.textContent = `${orbit.theta.toFixed(2)}rad ${orbit.phi.toFixed(2)}rad ${orbit.radius.toFixed(2)}m`;
+    
+                const target = modelViewer.getCameraTarget();
+                cameraTargetDisplay.textContent = `Target: ${target.x.toFixed(2)}m ${target.y.toFixed(2)}m ${target.z.toFixed(2)}m`;
+            }
+    
+            modelViewer.addEventListener('camera-change', updateDisplay);
+    
+            updateDisplay();
+        });
+    </script>
+</body>
+
+</html>
